@@ -1,6 +1,5 @@
 <resources>
-    <string name="hello">Hello World, MainView!</string>
-    <string name="app_name">课程表</string>
+    <string name="app_name">Holo课表</string>
     <string name="menu_done">完成</string>
     <string name="menu_doNotSave">取消</string>
 </resources>

@@ -5,11 +5,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.mh.R;
-import com.mh.util.MyDBHelper;
-import com.mh.util.NumHelper;
-import com.mh.util.MyDateHelper;
-
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -19,13 +15,13 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ContextMenu.ContextMenuInfo;
 import android.view.View.OnCreateContextMenuListener;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
@@ -36,6 +32,11 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.mh.R;
+import com.mh.util.MyDBHelper;
+import com.mh.util.MyDateHelper;
+import com.mh.util.NumHelper;
 
 public class MainView extends Activity implements OnItemSelectedListener,
 		OnCreateContextMenuListener, OnItemClickListener {
@@ -71,6 +72,10 @@ public class MainView extends Activity implements OnItemSelectedListener,
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
+		
+		ActionBar actionBar = getActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        
 		gallery = (Gallery) findViewById(R.id.head_gallery);
 		listView = (ListView) findViewById(R.id.classList);
 		listView.setOnCreateContextMenuListener(this);
