@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout android:orientation="vertical"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:fillViewport="true" xmlns:android="http://schemas.android.com/apk/res/android">
+	<ScrollView android:orientation="vertical"
+		android:layout_width="fill_parent" android:layout_height="fill_parent"
+		android:layout_weight="1.0">
+		<LinearLayout android:id="@+id/widget40"
+			android:layout_width="fill_parent" android:layout_height="fill_parent"
+			android:orientation="vertical">
+			<TextView android:id="@+id/weekNameTV" android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:textSize="24sp" android:gravity="center">
+			</TextView>
+			<TextView android:id="@+id/sequenceTV" android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:textSize="24sp">
+			</TextView>
+			<EditText android:id="@+id/subjectET" android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:textSize="18sp" android:hint="课程名">
+			</EditText>
+			<EditText android:id="@+id/placeET" android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:hint="地点" android:textSize="18sp">
+			</EditText>
+			<EditText android:id="@+id/teacherET" android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:hint="老师" android:textSize="18sp">
+			</EditText>
+			<EditText android:id="@+id/timeET" android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:hint="时间" android:textSize="18sp">
+			</EditText>
+			<EditText android:id="@+id/infoET" android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:hint="备注" android:textSize="18sp">
+			</EditText>
+			
+		</LinearLayout>
+
+	</ScrollView>
+	<LinearLayout android:orientation="horizontal"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		style="@android:style/ButtonBar">
+		<Button android:id="@+id/saveButton" android:layout_width="0.0dip"
+			android:layout_height="wrap_content" android:text="@string/menu_done"
+			android:layout_weight="1.0" />
+		<Button android:id="@+id/discardButton" android:layout_width="0.0dip"
+			android:layout_height="wrap_content" android:text="@string/menu_doNotSave"
+			android:layout_weight="1.0" />
+	</LinearLayout>
+</LinearLayout>
