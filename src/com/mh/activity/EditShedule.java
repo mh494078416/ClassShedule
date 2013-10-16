@@ -20,7 +20,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-public class EditClass extends Activity implements OnClickListener {
+public class EditShedule extends Activity implements OnClickListener {
 	private static final String TAG = "EditClass";
 	private Button saveButton;
 	private Button discardButton;
@@ -32,7 +32,7 @@ public class EditClass extends Activity implements OnClickListener {
 	private TextView weekNameTV;
 	private TextView sequenceTV;
 	private boolean editFlag;
-	
+
 	MyDBHelper dbHelper;
 
 	@Override
@@ -41,7 +41,7 @@ public class EditClass extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.eidt_class);
 		dbHelper = new MyDBHelper(this);
-		editFlag = false;	//编辑标志，默认为假，说明是新建记录，为真，说明是编辑记录
+		editFlag = false; // 编辑标志，默认为假，说明是新建记录，为真，说明是编辑记录
 		initView();
 
 	}
@@ -86,12 +86,12 @@ public class EditClass extends Activity implements OnClickListener {
 		weekNameTV.setText(weekName);
 		sequenceTV = (TextView) findViewById(R.id.sequenceTV);
 		sequenceTV.setText(positionString);
-		
+
 		saveButton = (Button) findViewById(R.id.saveButton);
 		saveButton.setOnClickListener(this);
 		discardButton = (Button) findViewById(R.id.discardButton);
 		discardButton.setOnClickListener(this);
-		
+
 		subjectET = (EditText) findViewById(R.id.subjectET);
 		placeET = (EditText) findViewById(R.id.placeET);
 		teacherET = (EditText) findViewById(R.id.teacherET);
@@ -106,10 +106,10 @@ public class EditClass extends Activity implements OnClickListener {
 		});
 		timeET.setOnClickListener(this);
 		infoET = (EditText) findViewById(R.id.infoET);
-		
+
 		Cursor cursor = dbHelper.open().query(weekName, positionString);
 		dbHelper.close();
-		if(cursor != null && cursor.getCount() > 0) {
+		if (cursor != null && cursor.getCount() > 0) {
 			String subject = cursor.getString(3);
 			String place = cursor.getString(4);
 			String teacher = cursor.getString(5);
@@ -120,7 +120,7 @@ public class EditClass extends Activity implements OnClickListener {
 			teacherET.setText(teacher);
 			timeET.setText(time);
 			infoET.setText(info);
-			
+
 			editFlag = true;
 		}
 	}
@@ -148,21 +148,22 @@ public class EditClass extends Activity implements OnClickListener {
 			if ("".equals(subject) || subject == null) {
 				new AlertDialog.Builder(this).setTitle("提示")
 						.setMessage("课程名不能为空").create().show();
-				return ;
+				return;
 			}
-			
-			if(editFlag) {
-				boolean result = dbHelper.open().update(weekName, sequence, subject, place, teacher, time, info);
+
+			if (editFlag) {
+				boolean result = dbHelper.open().update(weekName, sequence,
+						subject, place, teacher, time, info);
 				dbHelper.close();
-				if(result) {
+				if (result) {
 					Toast.makeText(this, "保存成功", Toast.LENGTH_LONG).show();
 					this.finish();
 				}
 			} else {
-				long result = dbHelper.open().insert(weekName, sequence, subject, place, teacher, time,
-						info);
+				long result = dbHelper.open().insert(weekName, sequence,
+						subject, place, teacher, time, info);
 				dbHelper.close();
-				if(result>0) {
+				if (result > 0) {
 					Toast.makeText(this, "创建成功", Toast.LENGTH_LONG).show();
 					this.finish();
 				}
