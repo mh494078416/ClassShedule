@@ -34,12 +34,12 @@ public final class R {
         public static final int RelativeLayout01=0x7f060000;
         public static final int bar_title=0x7f060010;
         public static final int classList=0x7f06000d;
-        public static final int discardButton=0x7f06000c;
+        public static final int discardButton=0x7f06000b;
         public static final int infoET=0x7f06000a;
         public static final int pager=0x7f06000e;
         public static final int pager_title_strip=0x7f06000f;
         public static final int placeET=0x7f060007;
-        public static final int saveButton=0x7f06000b;
+        public static final int saveButton=0x7f06000c;
         public static final int sequenceTV=0x7f060005;
         public static final int subjectET=0x7f060006;
         public static final int teacherET=0x7f060008;

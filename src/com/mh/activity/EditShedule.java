@@ -134,10 +134,9 @@ public class EditShedule extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		if (v == timeET) {
+		if (v.getId() == timeET.getId()) {
 			showTimePickerDialog();
-		}
-		if (v == saveButton) {
+		} else if (v.getId() == saveButton.getId()) {
 			String weekName = weekNameTV.getText().toString();
 			String sequence = sequenceTV.getText().toString();
 			String subject = subjectET.getText().toString();
@@ -169,8 +168,7 @@ public class EditShedule extends Activity implements OnClickListener {
 				}
 			}
 
-		}
-		if (v == discardButton) {
+		} else if (v.getId() == discardButton.getId()) {
 			this.finish();
 		}
 	}
