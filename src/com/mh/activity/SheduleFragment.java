@@ -124,6 +124,7 @@ public class SheduleFragment extends Fragment implements OnItemClickListener {
 				String str = subject + "(" + place + ")";
 				map.put("ItemText", str);
 			}
+			cursor.close();
 			listItem.add(map);
 		}
 		listItemAdapter.notifyDataSetChanged();
