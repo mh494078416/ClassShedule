@@ -11,22 +11,8 @@ public final class R {
     public static final class attr {
     }
     public static final class drawable {
-        public static final int bc_default=0x7f020000;
-        public static final int btn_press=0x7f020001;
-        public static final int gallerybg=0x7f020002;
-        public static final int ic_launcher=0x7f020003;
-        public static final int image_press=0x7f020004;
-        public static final int n0=0x7f020005;
-        public static final int n1=0x7f020006;
-        public static final int n2=0x7f020007;
-        public static final int n3=0x7f020008;
-        public static final int n4=0x7f020009;
-        public static final int n5=0x7f02000a;
-        public static final int n6=0x7f02000b;
-        public static final int n7=0x7f02000c;
-        public static final int n8=0x7f02000d;
-        public static final int n9=0x7f02000e;
-        public static final int widget_4x1_bkg=0x7f02000f;
+        public static final int ic_action_new=0x7f020000;
+        public static final int ic_launcher=0x7f020001;
     }
     public static final class id {
         public static final int ItemText=0x7f060002;
@@ -60,15 +46,7 @@ public final class R {
         public static final int menu_done=0x7f040001;
     }
     public static final class style {
-        /** 
-        Base application theme for API 11+. This theme completely replaces
-        AppBaseTheme from res/values/styles.xml on API 11+ devices.
-    
- API 11 theme customizations can go here. 
-         */
         public static final int AppBaseTheme=0x7f050000;
-        /**  All customizations that are NOT specific to a particular API-level can go here. 
-         */
         public static final int AppTheme=0x7f050001;
     }
 }
