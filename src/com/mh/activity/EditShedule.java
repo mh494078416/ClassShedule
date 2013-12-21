@@ -1,12 +1,8 @@
 package com.mh.activity;
 
-import com.mh.R;
-import com.mh.util.MyDBHelper;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.TimePickerDialog;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
@@ -19,6 +15,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import com.mh.R;
+import com.mh.dao.ClassSheduleDAO;
 
 public class EditShedule extends Activity implements OnClickListener {
 	private static final String TAG = "EditClass";
@@ -33,15 +32,14 @@ public class EditShedule extends Activity implements OnClickListener {
 	private TextView sequenceTV;
 	private boolean editFlag;
 
-	MyDBHelper dbHelper;
+	private ClassSheduleDAO classSheduleDAO;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		Log.v(TAG, "onCreate()");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.eidt_class);
-		dbHelper = new MyDBHelper(this);
-		editFlag = false; // 编辑标志，默认为假，说明是新建记录，为真，说明是编辑记录
+		classSheduleDAO = new ClassSheduleDAO(EditShedule.this);
 		initView();
 
 	}
@@ -107,27 +105,22 @@ public class EditShedule extends Activity implements OnClickListener {
 		timeET.setOnClickListener(this);
 		infoET = (EditText) findViewById(R.id.infoET);
 
-		Cursor cursor = dbHelper.open().query(weekName, positionString);
-		dbHelper.close();
-		if (cursor != null && cursor.getCount() > 0) {
-			String subject = cursor.getString(3);
-			String place = cursor.getString(4);
-			String teacher = cursor.getString(5);
-			String time = cursor.getString(6);
-			String info = cursor.getString(7);
-			subjectET.setText(subject);
-			placeET.setText(place);
-			teacherET.setText(teacher);
-			timeET.setText(time);
-			infoET.setText(info);
+		String subject = "";
+		String place = "";
+		String teacher = "";
+		String time = "";
+		String info = "";
+		subjectET.setText(subject);
+		placeET.setText(place);
+		teacherET.setText(teacher);
+		timeET.setText(time);
+		infoET.setText(info);
 
-			editFlag = true;
-		}
+		editFlag = true;
 	}
 
 	private void showTimePickerDialog() {
-		TimePickerDialog dlg = new TimePickerDialog(this, timeSetListener, 00,
-				00, true);
+		TimePickerDialog dlg = new TimePickerDialog(this, timeSetListener, 00, 00, true);
 		dlg.setTitle("请输入时间");
 		dlg.show();
 	}
@@ -145,23 +138,18 @@ public class EditShedule extends Activity implements OnClickListener {
 			String time = timeET.getText().toString();
 			String info = infoET.getText().toString();
 			if ("".equals(subject) || subject == null) {
-				new AlertDialog.Builder(this).setTitle("提示")
-						.setMessage("课程名不能为空").create().show();
+				new AlertDialog.Builder(this).setTitle("提示").setMessage("课程名不能为空").create().show();
 				return;
 			}
 
 			if (editFlag) {
-				boolean result = dbHelper.open().update(weekName, sequence,
-						subject, place, teacher, time, info);
-				dbHelper.close();
+				boolean result = classSheduleDAO.update(null);
 				if (result) {
 					Toast.makeText(this, "保存成功", Toast.LENGTH_LONG).show();
 					this.finish();
 				}
 			} else {
-				long result = dbHelper.open().insert(weekName, sequence,
-						subject, place, teacher, time, info);
-				dbHelper.close();
+				long result = classSheduleDAO.insert(null);
 				if (result > 0) {
 					Toast.makeText(this, "创建成功", Toast.LENGTH_LONG).show();
 					this.finish();

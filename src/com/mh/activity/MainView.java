@@ -13,13 +13,14 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.mh.R;
-import com.mh.util.MyConstant;
+import com.mh.dao.ClassSheduleDAO;
+import com.mh.dao.SemesterDAO;
+import com.mh.data.ClassSheduleMap;
 
 public class MainView extends FragmentActivity {
 	private static final String TAG = MainView.class.getClass().getSimpleName();
-
-	ViewPager mViewPager;
-	ShedulePagerAdapter shedulePagerAdapter;
+	private ClassSheduleDAO classSheduleDAO;
+	private SemesterDAO semesterDAO;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -29,11 +30,12 @@ public class MainView extends FragmentActivity {
 		ColorDrawable colorDrawable = new ColorDrawable();
 		colorDrawable.setColor(0xff000000);
 		bar.setSplitBackgroundDrawable(colorDrawable);
-		shedulePagerAdapter = new ShedulePagerAdapter(
-				getSupportFragmentManager());
-
-		mViewPager = (ViewPager) findViewById(R.id.pager);
+		ShedulePagerAdapter shedulePagerAdapter = new ShedulePagerAdapter(this.getSupportFragmentManager());
+		classSheduleDAO = new ClassSheduleDAO(MainView.this);
+		ClassSheduleMap.init(classSheduleDAO, semesterDAO);
+		ViewPager mViewPager = (ViewPager) findViewById(R.id.pager);
 		mViewPager.setAdapter(shedulePagerAdapter);
+		mViewPager.setCurrentItem(2);
 	}
 
 	@Override
@@ -46,7 +48,13 @@ public class MainView extends FragmentActivity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		case R.id.menu_new:
+		case R.id.action_new:
+			break;
+		case R.id.action_semester:
+			break;
+		case R.id.action_setting:
+			break;
+		case R.id.action_about:
 			break;
 		default:
 			break;
@@ -55,28 +63,28 @@ public class MainView extends FragmentActivity {
 	}
 
 	public static class ShedulePagerAdapter extends FragmentStatePagerAdapter {
-
-		public ShedulePagerAdapter(FragmentManager fm) {
-			super(fm);
+		public ShedulePagerAdapter(FragmentManager manager) {
+			super(manager);
 		}
 
 		@Override
 		public Fragment getItem(int i) {
 			Fragment fragment = new SheduleFragment();
 			Bundle args = new Bundle();
-			args.putInt(SheduleFragment.ARG_WEEK, i + 1);
+			String day = ClassSheduleMap.getDay(i);
+			args.putString(SheduleFragment.ARG_DAY, day);
 			fragment.setArguments(args);
 			return fragment;
 		}
 
 		@Override
 		public int getCount() {
-			return MyConstant.WEEKNAME.length;
+			return 14; // 最多显示两周的课程
 		}
 
 		@Override
 		public CharSequence getPageTitle(int position) {
-			return MyConstant.WEEKNAME[position];
+			return ClassSheduleMap.getDisplayDay(position);
 		}
 	}
 
