@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    android:paddingLeft="10.0dip"
+    android:paddingRight="10.0dip"
+    android:paddingTop="5.0dip" >
+
+    <TextView
+        android:id="@+id/tvBaseInfo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10.0dip"
+        android:text="基本信息"
+        android:textColor="@android:color/holo_blue_light"
+        android:textSize="18.0sp"
+        tools:ignore="HardcodedText" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2.0dip"
+        android:background="@android:color/holo_blue_light" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="15.0dip" >
+
+        <ImageView
+            android:id="@+id/ivSubject"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="2.0"
+            android:src="@drawable/subject"
+            tools:ignore="ContentDescription" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/etSubject"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="课程名"
+                android:textSize="24.0sp"
+                tools:ignore="HardcodedText" />
+
+            <EditText
+                android:id="@+id/etWeek"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="周几"
+                android:textSize="24.0sp"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20.0dip"
+        android:text="详细信息"
+        android:textColor="@android:color/holo_blue_light"
+        android:textSize="18.0sp"
+        tools:ignore="HardcodedText" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2.0dip"
+        android:background="@android:color/holo_blue_light" />
+
+    <EditText
+        android:id="@+id/etPlace"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="地点"
+        android:paddingTop="15.0dip"
+        android:textSize="20.0sp"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/etTeacher"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="老师"
+        android:textSize="20.0sp"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/etTime"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="上课时间"
+        android:textSize="20.0sp"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/etInfo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="备注"
+        android:textSize="20.0sp"
+        tools:ignore="HardcodedText" />
+
+</LinearLayout>

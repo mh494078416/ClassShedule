@@ -1,6 +1,7 @@
 package com.mh.activity;
 
 import android.app.ActionBar;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -32,6 +33,7 @@ public class MainView extends FragmentActivity {
 		bar.setSplitBackgroundDrawable(colorDrawable);
 		ShedulePagerAdapter shedulePagerAdapter = new ShedulePagerAdapter(this.getSupportFragmentManager());
 		classSheduleDAO = new ClassSheduleDAO(MainView.this);
+		semesterDAO = new SemesterDAO(MainView.this);
 		ClassSheduleMap.init(classSheduleDAO, semesterDAO);
 		ViewPager mViewPager = (ViewPager) findViewById(R.id.pager);
 		mViewPager.setAdapter(shedulePagerAdapter);
@@ -49,6 +51,9 @@ public class MainView extends FragmentActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.action_new:
+			Intent intent = new Intent();
+			intent.setClass(this, EditShedule.class);
+			this.startActivity(intent);
 			break;
 		case R.id.action_semester:
 			break;

@@ -25,7 +25,6 @@ public class ClassSheduleDAO {
 		value.put(ClassSheduleDO.KEY_PLACE, classSheduleDO.getPlace());
 		value.put(ClassSheduleDO.KEY_TEACHER, classSheduleDO.getTeacher());
 		value.put(ClassSheduleDO.KEY_START_TIME, classSheduleDO.getStartTime());
-		value.put(ClassSheduleDO.KEY_END_TIME, classSheduleDO.getEndTime());
 		value.put(ClassSheduleDO.KEY_INFO, classSheduleDO.getInfo());
 		value.put(ClassSheduleDO.KEY_SEMESTER_ID, classSheduleDO.getSemesterId());
 		SQLiteDatabase sqlite = new DbHelper(context).getDatabase();
@@ -68,7 +67,6 @@ public class ClassSheduleDAO {
 		value.put(ClassSheduleDO.KEY_PLACE, classSheduleDO.getPlace());
 		value.put(ClassSheduleDO.KEY_TEACHER, classSheduleDO.getTeacher());
 		value.put(ClassSheduleDO.KEY_START_TIME, classSheduleDO.getStartTime());
-		value.put(ClassSheduleDO.KEY_END_TIME, classSheduleDO.getEndTime());
 		value.put(ClassSheduleDO.KEY_INFO, classSheduleDO.getInfo());
 		value.put(ClassSheduleDO.KEY_SEMESTER_ID, classSheduleDO.getSemesterId());
 		SQLiteDatabase sqlite = new DbHelper(context).getDatabase();
@@ -79,7 +77,6 @@ public class ClassSheduleDAO {
 
 	private void wrapValueFromCursor(Cursor cursor, ClassSheduleDO classSheduleDO) {
 		classSheduleDO.setId(cursor.getInt(cursor.getColumnIndex(ClassSheduleDO.KEY_ID)));
-		classSheduleDO.setEndTime(cursor.getLong(cursor.getColumnIndex(ClassSheduleDO.KEY_END_TIME)));
 		classSheduleDO.setInfo(cursor.getString(cursor.getColumnIndex(ClassSheduleDO.KEY_INFO)));
 		classSheduleDO.setPlace(cursor.getString(cursor.getColumnIndex(ClassSheduleDO.KEY_PLACE)));
 		classSheduleDO.setStartTime(cursor.getLong(cursor.getColumnIndex(ClassSheduleDO.KEY_START_TIME)));

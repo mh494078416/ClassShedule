@@ -27,6 +27,9 @@ public class ClassSheduleMap {
 	private static final Map<String, List<ClassSheduleDO>> classMap = new HashMap<String, List<ClassSheduleDO>>();
 
 	public static void init(ClassSheduleDAO classSheduleDAO, SemesterDAO semesterDAO) {
+		if (semesterDAO.queryALL() == null) {
+			return;
+		}
 		SemesterDO semesterDO = semesterDAO.queryALL().get(0);
 		int semesterId = semesterDO.getId();
 		ClassSheduleMap.semesterStartDate = semesterDO.getStartDate();

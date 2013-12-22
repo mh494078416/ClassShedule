@@ -1,19 +1,17 @@
 package com.mh.dao;
 
 import java.util.ArrayList;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
 import com.mh.entity.SemesterDO;
 import com.mh.util.DbHelper;
 
 public class SemesterDAO {
 	private Context context;
 
-	private SemesterDAO(Context context) {
+	public SemesterDAO(Context context) {
 		this.context = context;
 	}
 
