@@ -16,12 +16,12 @@
         android:paddingTop="10.0dip"
         android:text="基本信息"
         android:textColor="@android:color/holo_blue_light"
-        android:textSize="18.0sp"
+        android:textSize="16.0sp"
         tools:ignore="HardcodedText" />
 
     <View
         android:layout_width="fill_parent"
-        android:layout_height="2.0dip"
+        android:layout_height="1.0dip"
         android:background="@android:color/holo_blue_light" />
 
     <LinearLayout
@@ -49,16 +49,18 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:hint="课程名"
-                android:textSize="24.0sp"
+                android:textSize="18.0sp"
                 tools:ignore="HardcodedText" />
 
-            <EditText
-                android:id="@+id/etWeek"
+            <Spinner
+                android:id="@+id/week_spinner"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:hint="周几"
-                android:textSize="24.0sp"
-                tools:ignore="HardcodedText" />
+                android:layout_height="wrap_content" />
+
+            <Spinner
+                android:id="@+id/week_diff_spinner"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
         </LinearLayout>
     </LinearLayout>
 
@@ -68,12 +70,12 @@
         android:paddingTop="20.0dip"
         android:text="详细信息"
         android:textColor="@android:color/holo_blue_light"
-        android:textSize="18.0sp"
+        android:textSize="16.0sp"
         tools:ignore="HardcodedText" />
 
     <View
         android:layout_width="fill_parent"
-        android:layout_height="2.0dip"
+        android:layout_height="1.0dip"
         android:background="@android:color/holo_blue_light" />
 
     <EditText
@@ -82,7 +84,7 @@
         android:layout_height="wrap_content"
         android:hint="地点"
         android:paddingTop="15.0dip"
-        android:textSize="20.0sp"
+        android:textSize="18.0sp"
         tools:ignore="HardcodedText" />
 
     <EditText
@@ -90,7 +92,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:hint="老师"
-        android:textSize="20.0sp"
+        android:textSize="18.0sp"
         tools:ignore="HardcodedText" />
 
     <EditText
@@ -98,7 +100,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:hint="上课时间"
-        android:textSize="20.0sp"
+        android:textSize="18.0sp"
         tools:ignore="HardcodedText" />
 
     <EditText
@@ -106,7 +108,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:hint="备注"
-        android:textSize="20.0sp"
+        android:textSize="18.0sp"
         tools:ignore="HardcodedText" />
 
 </LinearLayout>

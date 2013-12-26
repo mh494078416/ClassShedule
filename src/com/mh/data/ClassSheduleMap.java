@@ -14,9 +14,7 @@ import java.util.Map;
 import android.util.Log;
 
 import com.mh.dao.ClassSheduleDAO;
-import com.mh.dao.SemesterDAO;
 import com.mh.entity.ClassSheduleDO;
-import com.mh.entity.SemesterDO;
 import com.mh.util.CalendarUtil;
 
 public class ClassSheduleMap {
@@ -26,13 +24,7 @@ public class ClassSheduleMap {
 	private static final int OFFSET = 2; // 展现向后2天的数据
 	private static final Map<String, List<ClassSheduleDO>> classMap = new HashMap<String, List<ClassSheduleDO>>();
 
-	public static void init(ClassSheduleDAO classSheduleDAO, SemesterDAO semesterDAO) {
-		if (semesterDAO.queryALL() == null) {
-			return;
-		}
-		SemesterDO semesterDO = semesterDAO.queryALL().get(0);
-		int semesterId = semesterDO.getId();
-		ClassSheduleMap.semesterStartDate = semesterDO.getStartDate();
+	public static void init(ClassSheduleDAO classSheduleDAO, int semesterId) {
 		ArrayList<ClassSheduleDO> classSheduleDOList = classSheduleDAO.queryALL(semesterId);
 		if (classSheduleDOList == null || classSheduleDOList.isEmpty()) {
 			return;

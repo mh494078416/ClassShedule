@@ -1,5 +1,22 @@
 <resources>
+
     <string name="app_name">Holo课表</string>
     <string name="menu_done">完成</string>
     <string name="menu_doNotSave">取消</string>
+
+    <string-array name="week_array">
+        <item>周一</item>
+        <item>周二</item>
+        <item>周三</item>
+        <item>周四</item>
+        <item>周五</item>
+        <item>周六</item>
+        <item>周日</item>
+    </string-array>
+    <string-array name="week_diff_array">
+        <item>全部</item>
+        <item>单周</item>
+        <item>双周</item>
+    </string-array>
+
 </resources>

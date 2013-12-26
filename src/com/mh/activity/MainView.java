@@ -17,6 +17,8 @@ import com.mh.R;
 import com.mh.dao.ClassSheduleDAO;
 import com.mh.dao.SemesterDAO;
 import com.mh.data.ClassSheduleMap;
+import com.mh.data.SemesterStore;
+import com.mh.entity.SemesterDO;
 
 public class MainView extends FragmentActivity {
 	private static final String TAG = MainView.class.getClass().getSimpleName();
@@ -34,7 +36,9 @@ public class MainView extends FragmentActivity {
 		ShedulePagerAdapter shedulePagerAdapter = new ShedulePagerAdapter(this.getSupportFragmentManager());
 		classSheduleDAO = new ClassSheduleDAO(MainView.this);
 		semesterDAO = new SemesterDAO(MainView.this);
-		ClassSheduleMap.init(classSheduleDAO, semesterDAO);
+		SemesterDO semesterDO = semesterDAO.queryALL().get(0);
+		SemesterStore.semesterId = semesterDO == null ? 1 : semesterDO.getId();
+		ClassSheduleMap.init(classSheduleDAO, SemesterStore.semesterId);
 		ViewPager mViewPager = (ViewPager) findViewById(R.id.pager);
 		mViewPager.setAdapter(shedulePagerAdapter);
 		mViewPager.setCurrentItem(2);
@@ -43,7 +47,7 @@ public class MainView extends FragmentActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.action_bar_list_menu, menu);
+		inflater.inflate(R.menu.main_action_bar_list_menu, menu);
 		return super.onCreateOptionsMenu(menu);
 	}
 

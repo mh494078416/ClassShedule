@@ -26,7 +26,6 @@ public class ClassSheduleDO {
 	private String place;
 	private String teacher;
 	private long startTime;
-	private long endTime;
 	private String info;
 	private int semesterId;
 
@@ -84,14 +83,6 @@ public class ClassSheduleDO {
 
 	public void setStartTime(long startTime) {
 		this.startTime = startTime;
-	}
-
-	public long getEndTime() {
-		return endTime;
-	}
-
-	public void setEndTime(long endTime) {
-		this.endTime = endTime;
 	}
 
 	public String getInfo() {
